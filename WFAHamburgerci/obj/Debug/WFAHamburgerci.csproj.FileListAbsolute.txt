@@ -95,3 +95,16 @@ C:\Users\BERAT\Desktop\Ceng 5\Windows Programming\WFAHamburgerci\WFAHamburgerci\
 C:\Users\BERAT\Desktop\Ceng 5\Windows Programming\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.csproj.GenerateResource.Cache
 C:\Users\BERAT\Desktop\Ceng 5\Windows Programming\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.exe
 C:\Users\BERAT\Desktop\Ceng 5\Windows Programming\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.pdb
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\bin\Debug\WFAHamburgerci.exe.config
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\bin\Debug\WFAHamburgerci.exe
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\bin\Debug\WFAHamburgerci.pdb
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.csprojResolveAssemblyReference.cache
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.Form1.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.Form2.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.Form3.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.Form4.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.MyMDIForm.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.Properties.Resources.resources
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.csproj.GenerateResource.Cache
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.exe
+c:\users\berat\documents\visual studio 2017\Projects\WFAHamburgerci\WFAHamburgerci\obj\Debug\WFAHamburgerci.pdb

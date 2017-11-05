@@ -19,8 +19,9 @@ namespace WFAHamburgerci
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            Form1.menuler.Add(new Menu() { MenuAdi = txtMenuAdi.Text, Fiyati = nmrFiyat.Value });
-            MessageBox.Show("Menu listeye eklendi. " + DateTime.Now + Environment.UserName);
+            //Form1.menuler.Add(new Menu() { MenuAdi = txtMenuAdi.Text, Fiyati = nmrFiyat.Value });
+            //MessageBox.Show("Menu listeye eklendi. " + DateTime.Now + Environment.UserName);
+            FileHelper.MenuEkle(txtMenuAdi.Text, nmrFiyat.Value);
         }
     }
 }

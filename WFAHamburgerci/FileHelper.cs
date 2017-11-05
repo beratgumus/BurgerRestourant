@@ -13,16 +13,17 @@ namespace WFAHamburgerci
     {
         private static string MainDirectoryPath = @"C:\WFAHamburgerci";
         private static string MenuPath = Path.Combine(MainDirectoryPath, "Menuler.xml");
+
         public static void KlasorYarat()
         {
-            if(!Directory.Exists(MainDirectoryPath))
-                 Directory.CreateDirectory(MainDirectoryPath);
+            if (!Directory.Exists(MainDirectoryPath))
+                Directory.CreateDirectory(MainDirectoryPath);
         }
 
         public static void MenuDosyaYarat()
         {
             KlasorYarat();
-            if(!File.Exists(MenuPath))
+            if (!File.Exists(MenuPath))
             {
                 var file = File.Create(MenuPath);
                 file.Close();
@@ -32,7 +33,7 @@ namespace WFAHamburgerci
         public static void MenuIlkDegerleriniDoldur()
         {
 
-           MenuSchema menuSchema = new MenuSchema();
+            MenuSchema menuSchema = new MenuSchema();
 
             List<MenuSchemaMenu> menuItemList = new List<MenuSchemaMenu>
             {
@@ -57,7 +58,6 @@ namespace WFAHamburgerci
                 }
             }
 
-
             XmlDocument xmlDoc = new XmlDocument();
 
             xmlDoc.LoadXml(xml);
@@ -67,7 +67,7 @@ namespace WFAHamburgerci
 
         public static List<Menu> MenuleriOku()
         {
-            if(File.Exists(MenuPath))
+            if (File.Exists(MenuPath))
             {
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(MenuPath);
@@ -91,5 +91,23 @@ namespace WFAHamburgerci
             return new List<Menu>();
 
         }
+        public static void MenuEkle(String MenuAdi, decimal Fiyati)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(MenuPath);
+            XmlNode menuNode = doc.CreateElement("menu");
+            XmlNode menu = doc.CreateElement("MenuAdi");
+            menu.InnerText = MenuAdi;
+            XmlNode fiyati = doc.CreateElement("Fiyati");
+            fiyati.InnerText = Fiyati.ToString();
+
+            menuNode.AppendChild(menu);
+            menuNode.AppendChild(fiyati);
+
+            doc.ChildNodes[1].AppendChild(menuNode);
+            doc.Save(MenuPath);
+
+        }
     }
+    
 }

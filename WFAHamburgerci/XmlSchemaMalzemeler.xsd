@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XmlSchemaMalzemeler"
+    targetNamespace="http://tempuri.org/XmlSchemaMalzemeler.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XmlSchemaMalzemeler.xsd"
+    xmlns:mstns="http://tempuri.org/XmlSchemaMalzemeler.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+
+  <xs:element name="MalzemeSchema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="malzeme" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MalzemeAdi" type="xs:string"></xs:element>
+              <xs:element name="Fiyati"  type="xs:decimal"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

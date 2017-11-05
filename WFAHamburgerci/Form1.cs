@@ -15,6 +15,7 @@ namespace WFAHamburgerci
         public Form1()
         {
             InitializeComponent();
+
         }
 
         public static List<Siparis> siparisler = new List<Siparis>();
@@ -22,11 +23,11 @@ namespace WFAHamburgerci
         public static List<Siparis> mevcutSiparisler = new List<Siparis>();
 
 
-        public static List<Menu> menuler = new List<WFAHamburgerci.Menu>() {
-            new Menu() {MenuAdi = "Steak House", Fiyati = 3},
-            new Menu() {MenuAdi = "Big king", Fiyati = 4},
-            new Menu() {MenuAdi = "King Chicken", Fiyati = 5}
-        };
+        //public static List<Menu> menuler = new List<WFAHamburgerci.Menu>() {
+        //    new Menu() {MenuAdi = "Steak House", Fiyati = 3},
+        //    new Menu() {MenuAdi = "Big king", Fiyati = 4},
+        //    new Menu() {MenuAdi = "King Chicken", Fiyati = 5}
+        //};
 
         public static List<Extra> extraMalzemeler = new List<Extra>() { new Extra() { ExtraAdi = "Hardal", Fiyati = 1 },
             new Extra() { ExtraAdi = "Ketçap", Fiyati = 2  }
@@ -90,9 +91,10 @@ namespace WFAHamburgerci
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FileHelper.MenuDosyaYarat();
-            FileHelper.MenuIlkDegerleriniDoldur();
-            foreach (Menu menu in menuler)
+            //FileHelper.MenuDosyaYarat();
+            //FileHelper.MenuIlkDegerleriniDoldur();
+            List<Menu> menuList=FileHelper.MenuleriOku();
+            foreach (Menu menu in menuList)
             {
                 cbMenuler.Items.Add(menu);
             }
