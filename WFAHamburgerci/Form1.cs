@@ -29,10 +29,11 @@ namespace WFAHamburgerci
         //    new Menu() {MenuAdi = "King Chicken", Fiyati = 5}
         //};
 
-        public static List<Extra> extraMalzemeler = new List<Extra>() { new Extra() { ExtraAdi = "Hardal", Fiyati = 1 },
-            new Extra() { ExtraAdi = "Ketçap", Fiyati = 2  }
+        //public static List<Extra> extraMalzemeler = new List<Extra>() {
+        //    new Extra() { ExtraAdi = "Hardal", Fiyati = 1 },
+        //    new Extra() { ExtraAdi = "Ketçap", Fiyati = 2  }
 
-        };
+        //};
 
         private void btnSiparisEkle_Click(object sender, EventArgs e)
         {
@@ -99,7 +100,10 @@ namespace WFAHamburgerci
                 cbMenuler.Items.Add(menu);
             }
 
-            foreach (Extra extra in extraMalzemeler)
+            //FileHelper.MalzemeDosyaYarat();
+            //FileHelper.MalzemeIlkDegerleriniDoldur();
+            List<Extra> malzemeList = FileHelper.MalzemeleriOku();
+            foreach (Extra extra in malzemeList)
             {
                 flpExtraMalzemeler.Controls.Add(new CheckBox() { Text = extra.ExtraAdi, Tag = extra });
             }

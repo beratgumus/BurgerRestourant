@@ -13,6 +13,7 @@ namespace WFAHamburgerci
     {
         private static string MainDirectoryPath = @"C:\WFAHamburgerci";
         private static string MenuPath = Path.Combine(MainDirectoryPath, "Menuler.xml");
+        private static string MalzemePath = Path.Combine(MainDirectoryPath, "Malzemeler.xml");
 
         public static void KlasorYarat()
         {
@@ -29,6 +30,16 @@ namespace WFAHamburgerci
                 file.Close();
             }
         }
+        public static void MalzemeDosyaYarat()
+        {
+            KlasorYarat();
+            if (!File.Exists(MalzemePath))
+            {
+                var file = File.Create(MalzemePath);
+                file.Close();
+            }
+
+        }
 
         public static void MenuIlkDegerleriniDoldur()
         {
@@ -44,7 +55,6 @@ namespace WFAHamburgerci
 
             menuSchema.menu = menuItemList.ToArray();
 
-
             XmlSerializer xs = new XmlSerializer(typeof(MenuSchema));
             string xml = "";
 
@@ -57,12 +67,38 @@ namespace WFAHamburgerci
 
                 }
             }
-
             XmlDocument xmlDoc = new XmlDocument();
-
             xmlDoc.LoadXml(xml);
-
             xmlDoc.Save(MenuPath);
+        }
+
+        public static void MalzemeIlkDegerleriniDoldur()
+        {
+            MalzemeSchema malzemeSchema = new MalzemeSchema();
+
+            List<MalzemeSchemaMalzeme> malzemeItemList = new List<MalzemeSchemaMalzeme>()
+            {
+                new MalzemeSchemaMalzeme(){MalzemeAdi = "Ketcap",Fiyati=1},
+                new MalzemeSchemaMalzeme(){MalzemeAdi = "Mayonez",Fiyati=1},
+                new MalzemeSchemaMalzeme(){MalzemeAdi = "Ranch",Fiyati=1}
+            };
+
+            malzemeSchema.malzeme = malzemeItemList.ToArray();
+
+            XmlSerializer xs = new XmlSerializer(typeof(MalzemeSchema));
+            string xml = "";
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (XmlWriter writer = XmlWriter.Create(sw))
+                {
+                    xs.Serialize(writer, malzemeSchema);
+                    xml = sw.ToString();
+                }
+            }
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xml);
+            xmlDoc.Save(MalzemePath);
         }
 
         public static List<Menu> MenuleriOku()
@@ -91,6 +127,30 @@ namespace WFAHamburgerci
             return new List<Menu>();
 
         }
+        public static List<Extra> MalzemeleriOku()
+        {
+            if (File.Exists(MalzemePath))
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(MalzemePath);
+
+                XmlNode malzemeNode = xmlDoc.ChildNodes[1];
+
+                List<Extra> malzemeList = new List<Extra>();
+
+                foreach (XmlNode item in malzemeNode)
+                {
+                    malzemeList.Add(new Extra()
+                    {
+                        ExtraAdi = item["MalzemeAdi"].InnerText.Trim(),
+                        Fiyati = Convert.ToDecimal(item["Fiyati"].InnerText.Trim())
+                    });
+                }
+                return malzemeList;
+            }
+            return new List<Extra>();
+        }
+
         public static void MenuEkle(String MenuAdi, decimal Fiyati)
         {
             XmlDocument doc = new XmlDocument();
@@ -107,6 +167,23 @@ namespace WFAHamburgerci
             doc.ChildNodes[1].AppendChild(menuNode);
             doc.Save(MenuPath);
 
+        }
+        public static void MalzemeEkle(String MalzemeAdi,decimal Fiyati)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(MalzemePath);
+
+            XmlNode malzemeNode = doc.CreateElement("malzeme");
+            XmlNode malzemeAdi = doc.CreateElement("MalzemeAdi");
+            malzemeAdi.InnerText = MalzemeAdi;
+            XmlNode malzemeFiyati = doc.CreateElement("Fiyati");
+            malzemeFiyati.InnerText = Fiyati.ToString();
+
+            malzemeNode.AppendChild(malzemeAdi);
+            malzemeNode.AppendChild(malzemeFiyati);
+
+            doc.ChildNodes[1].AppendChild(malzemeNode);
+            doc.Save(MalzemePath);
         }
     }
     

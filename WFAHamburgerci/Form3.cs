@@ -19,7 +19,7 @@ namespace WFAHamburgerci
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            FileHelper.MalzemeEkle(txtAd.Text, nmrFiyat.Value);
         }
     }
 }
